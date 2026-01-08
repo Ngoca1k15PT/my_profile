@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -29,7 +31,7 @@ const Footer = () => {
               DevMobile
             </Link>
             <p className="text-sm text-muted-foreground mt-1">
-              Mobile Developer | React Native Specialist
+              {t("footer.tagline")}
             </p>
           </motion.div>
 
@@ -64,8 +66,8 @@ const Footer = () => {
             className="text-center md:text-right"
           >
             <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center md:justify-end">
-              © {currentYear} DevMobile. Made with{" "}
-              <Heart size={14} className="text-accent fill-accent" /> and React Native
+              © {currentYear} DevMobile. {t("footer.madeWith")}{" "}
+              <Heart size={14} className="text-accent fill-accent" /> {t("footer.and")}
             </p>
           </motion.div>
         </div>

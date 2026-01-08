@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import Image from "next/image";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative min-h-screen flex items-center bg-hero-gradient overflow-hidden pt-20">
       {/* Background decorations */}
@@ -31,7 +34,7 @@ const Hero = () => {
             >
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               <span className="text-sm font-medium text-muted-foreground">
-                Available for new opportunities
+                {t("hero.available")}
               </span>
             </motion.div>
 
@@ -41,9 +44,9 @@ const Hero = () => {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6"
             >
-              Mobile Developer
+              {t("hero.title")}
               <br />
-              <span className="text-gradient">React Native Specialist</span>
+              <span className="text-gradient">{t("hero.subtitle")}</span>
             </motion.h1>
 
             <motion.p
@@ -52,11 +55,13 @@ const Hero = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              Building high-quality mobile apps with{" "}
-              <span className="text-foreground font-medium">performance</span>,{" "}
-              <span className="text-foreground font-medium">scalability</span>, and{" "}
-              <span className="text-foreground font-medium">great UX</span> in mind.
-              Nearly 4 years of crafting real-world mobile experiences.
+              {t("hero.description").split(/\{([^}]+)\}/g).map((part, index) => {
+                if (index % 2 === 1) {
+                  const key = part as "performance" | "scalability" | "ux";
+                  return <span key={index} className="text-foreground font-medium">{t(`hero.${key}`)}</span>;
+                }
+                return <span key={index}>{part}</span>;
+              })}
             </motion.p>
 
             <motion.div
@@ -67,13 +72,13 @@ const Hero = () => {
             >
               <Button variant="hero" size="xl" asChild>
                 <a href="#projects">
-                  View Projects
+                  {t("hero.viewProjects")}
                   <ArrowRight className="ml-2" size={20} />
                 </a>
               </Button>
               <Button variant="hero-outline" size="xl" asChild>
                 <a href="#contact">
-                  Contact Me
+                  {t("hero.contact")}
                 </a>
               </Button>
             </motion.div>
@@ -87,15 +92,15 @@ const Hero = () => {
             >
               <div>
                 <div className="text-3xl md:text-4xl font-heading font-bold text-gradient">4+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
+                <div className="text-sm text-muted-foreground">{t("hero.yearsExp")}</div>
               </div>
               <div>
                 <div className="text-3xl md:text-4xl font-heading font-bold text-gradient">15+</div>
-                <div className="text-sm text-muted-foreground">Projects Shipped</div>
+                <div className="text-sm text-muted-foreground">{t("hero.projectsShipped")}</div>
               </div>
               <div>
                 <div className="text-3xl md:text-4xl font-heading font-bold text-gradient">2</div>
-                <div className="text-sm text-muted-foreground">Platforms</div>
+                <div className="text-sm text-muted-foreground">{t("hero.platforms")}</div>
               </div>
             </motion.div>
           </motion.div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/app/contexts/LanguageContext";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
@@ -42,9 +43,11 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${spaceGrotesk.variable} font-body antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          {children}
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, MessageCircle, ShoppingCart, Brain, Smartphone } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const projects = [
   {
@@ -44,6 +45,8 @@ const projects = [
 ];
 
 const Projects = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="projects" className="py-20 lg:py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
@@ -55,13 +58,13 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <span className="inline-block text-primary font-semibold mb-4">
-            My Work
+            {t("projects.label")}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">
-            Featured Projects
+            {t("projects.title")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Real mobile applications I've built — focusing on performance, scalability, and exceptional user experience
+            {t("projects.description")}
           </p>
         </motion.div>
 
@@ -144,7 +147,7 @@ const Projects = () => {
 
                   {/* Features */}
                   <div className="mb-6">
-                    <span className="text-sm font-semibold mb-2 block">Key Features</span>
+                    <span className="text-sm font-semibold mb-2 block">{t("projects.features")}</span>
                     <div className="flex flex-wrap gap-2">
                       {project.features.map((feature) => (
                         <span
@@ -159,7 +162,7 @@ const Projects = () => {
 
                   {/* Tech Stack */}
                   <div className="mb-8">
-                    <span className="text-sm font-semibold mb-2 block">Tech Stack</span>
+                    <span className="text-sm font-semibold mb-2 block">{t("projects.techStack")}</span>
                     <div className="flex flex-wrap gap-2">
                       {project.techStack.map((tech) => (
                         <span
@@ -176,11 +179,11 @@ const Projects = () => {
                   <div className="flex gap-3">
                     <Button variant="default" size="sm">
                       <ExternalLink size={16} />
-                      View Details
+                      {t("projects.viewDetails")}
                     </Button>
                     <Button variant="outline" size="sm">
                       <Github size={16} />
-                      GitHub
+                      {t("projects.github")}
                     </Button>
                   </div>
                 </div>

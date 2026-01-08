@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Briefcase, Code, Users, Lightbulb } from "lucide-react";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const experiences = [
   {
@@ -38,25 +39,27 @@ const experiences = [
   },
 ];
 
-const highlights = [
-  {
-    icon: Code,
-    title: "Clean Code",
-    description: "Writing maintainable, well-documented code that stands the test of time",
-  },
-  {
-    icon: Users,
-    title: "Team Player",
-    description: "Collaborating effectively with designers, backend developers, and stakeholders",
-  },
-  {
-    icon: Lightbulb,
-    title: "Problem Solver",
-    description: "Turning complex requirements into elegant, user-friendly mobile experiences",
-  },
-];
+  const highlights = [
+    {
+      icon: Code,
+      titleKey: "experience.highlight.code",
+      descKey: "experience.highlight.code.desc",
+    },
+    {
+      icon: Users,
+      titleKey: "experience.highlight.team",
+      descKey: "experience.highlight.team.desc",
+    },
+    {
+      icon: Lightbulb,
+      titleKey: "experience.highlight.solver",
+      descKey: "experience.highlight.solver.desc",
+    },
+  ];
 
 const Experience = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="experience" className="py-20 lg:py-32">
       <div className="container mx-auto px-6">
@@ -68,13 +71,13 @@ const Experience = () => {
           className="text-center mb-16"
         >
           <span className="inline-block text-primary font-semibold mb-4">
-            My Journey
+            {t("experience.label")}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">
-            Experience & Background
+            {t("experience.title")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            From university graduate to seasoned mobile developer — a journey of continuous learning and growth
+            {t("experience.description")}
           </p>
         </motion.div>
 
@@ -123,7 +126,7 @@ const Experience = () => {
         <div className="grid md:grid-cols-3 gap-6">
           {highlights.map((highlight, index) => (
             <motion.div
-              key={highlight.title}
+              key={highlight.titleKey}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -133,8 +136,8 @@ const Experience = () => {
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <highlight.icon className="text-primary" size={28} />
               </div>
-              <h3 className="text-xl font-heading font-bold mb-2">{highlight.title}</h3>
-              <p className="text-muted-foreground">{highlight.description}</p>
+              <h3 className="text-xl font-heading font-bold mb-2">{t(highlight.titleKey)}</h3>
+              <p className="text-muted-foreground">{t(highlight.descKey)}</p>
             </motion.div>
           ))}
         </div>

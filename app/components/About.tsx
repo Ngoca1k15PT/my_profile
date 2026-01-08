@@ -2,31 +2,33 @@
 
 import { motion } from "framer-motion";
 import { Heart, Target, Sparkles, Coffee } from "lucide-react";
-
-const passions = [
-  {
-    icon: Heart,
-    title: "Product Mindset",
-    description: "I build apps that people actually want to use — not just code that works.",
-  },
-  {
-    icon: Target,
-    title: "Problem Solver",
-    description: "Complex challenges excite me. I love finding elegant solutions to tricky mobile problems.",
-  },
-  {
-    icon: Sparkles,
-    title: "Quality Obsessed",
-    description: "Performance, UX, and maintainability aren't afterthoughts — they're built in from day one.",
-  },
-  {
-    icon: Coffee,
-    title: "Continuous Learner",
-    description: "The mobile landscape evolves fast. I stay curious and keep my skills sharp.",
-  },
-];
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
+  
+  const passions = [
+    {
+      icon: Heart,
+      titleKey: "about.passion.product",
+      descKey: "about.passion.product.desc",
+    },
+    {
+      icon: Target,
+      titleKey: "about.passion.problem",
+      descKey: "about.passion.problem.desc",
+    },
+    {
+      icon: Sparkles,
+      titleKey: "about.passion.quality",
+      descKey: "about.passion.quality.desc",
+    },
+    {
+      icon: Coffee,
+      titleKey: "about.passion.learner",
+      descKey: "about.passion.learner.desc",
+    },
+  ];
   return (
     <section id="about" className="py-20 lg:py-32">
       <div className="container mx-auto px-6">
@@ -39,29 +41,42 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block text-primary font-semibold mb-4">
-              About Me
+              {t("about.title")}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">
-              More Than Just Code
+              {t("about.heading")}
             </h2>
             
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>
-                I'm a <span className="text-foreground font-medium">Mobile Developer</span> who genuinely loves what I do. 
-                There's something magical about turning an idea into an app that thousands of people use every day.
+                {t("about.p1").split(/\{mobile\}/g).map((part, index) => 
+                  index === 1 ? (
+                    <span key={index} className="text-foreground font-medium">{t("about.p1.mobile")}</span>
+                  ) : (
+                    <span key={index}>{part}</span>
+                  )
+                )}
               </p>
               <p>
-                Over the past 4 years, I've focused on <span className="text-foreground font-medium">React Native</span> because 
-                it lets me build beautiful, high-performance apps for both iOS and Android without compromise.
+                {t("about.p2").split(/\{rn\}/g).map((part, index) => 
+                  index === 1 ? (
+                    <span key={index} className="text-foreground font-medium">{t("about.p2.rn")}</span>
+                  ) : (
+                    <span key={index}>{part}</span>
+                  )
+                )}
               </p>
               <p>
-                What drives me? <span className="text-foreground font-medium">Shipping products that matter.</span> I care 
-                deeply about the end-user experience, and I take pride in writing code that's not just functional, 
-                but maintainable and scalable for the long term.
+                {t("about.p3").split(/\{key\}/g).map((part, index) => 
+                  index === 1 ? (
+                    <span key={index} className="text-foreground font-medium">{t("about.p3.key")}</span>
+                  ) : (
+                    <span key={index}>{part}</span>
+                  )
+                )}
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies, contributing to open source, 
-                or enjoying a good cup of coffee while brainstorming my next project.
+                {t("about.p4")}
               </p>
             </div>
           </motion.div>
@@ -76,7 +91,7 @@ const About = () => {
           >
             {passions.map((passion, index) => (
               <motion.div
-                key={passion.title}
+                key={passion.titleKey}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -88,8 +103,8 @@ const About = () => {
                 }`}>
                   <passion.icon size={24} />
                 </div>
-                <h3 className="font-heading font-bold mb-2">{passion.title}</h3>
-                <p className="text-sm text-muted-foreground">{passion.description}</p>
+                <h3 className="font-heading font-bold mb-2">{t(passion.titleKey)}</h3>
+                <p className="text-sm text-muted-foreground">{t(passion.descKey)}</p>
               </motion.div>
             ))}
           </motion.div>

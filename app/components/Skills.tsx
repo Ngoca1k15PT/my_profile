@@ -2,10 +2,14 @@
 
 import { motion } from "framer-motion";
 import { Smartphone, Layers, Zap, GitBranch } from "lucide-react";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
-const skillCategories = [
+const Skills = () => {
+  const { t } = useLanguage();
+  
+  const skillCategories = [
   {
-    title: "Mobile Development",
+    titleKey: "skills.mobile",
     icon: Smartphone,
     color: "bg-primary/10 text-primary",
     skills: [
@@ -16,7 +20,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "State & Architecture",
+    titleKey: "skills.architecture",
     icon: Layers,
     color: "bg-accent/10 text-accent",
     skills: [
@@ -27,7 +31,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "Real-time & Backend",
+    titleKey: "skills.backend",
     icon: Zap,
     color: "bg-primary/10 text-primary",
     skills: [
@@ -38,7 +42,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "DevOps & Tools",
+    titleKey: "skills.devops",
     icon: GitBranch,
     color: "bg-accent/10 text-accent",
     skills: [
@@ -63,7 +67,6 @@ const getLevelColor = (level: string) => {
   }
 };
 
-const Skills = () => {
   return (
     <section id="skills" className="py-20 lg:py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
@@ -75,20 +78,20 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <span className="inline-block text-primary font-semibold mb-4">
-            What I Do
+            {t("skills.label")}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">
-            Skills & Expertise
+            {t("skills.title")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A comprehensive toolkit refined through years of building real-world mobile applications
+            {t("skills.description")}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
-              key={category.title}
+              key={category.titleKey}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -99,7 +102,7 @@ const Skills = () => {
                 <div className={`w-12 h-12 rounded-xl ${category.color} flex items-center justify-center`}>
                   <category.icon size={24} />
                 </div>
-                <h3 className="text-xl font-heading font-bold">{category.title}</h3>
+                <h3 className="text-xl font-heading font-bold">{t(category.titleKey)}</h3>
               </div>
 
               <div className="space-y-4">
@@ -116,7 +119,7 @@ const Skills = () => {
                     <div className="flex items-center gap-3">
                       <span className="text-sm text-muted-foreground">{skill.years}</span>
                       <span className={`text-xs font-semibold px-3 py-1 rounded-full ${getLevelColor(skill.level)}`}>
-                        {skill.level}
+                        {t(`skills.${skill.level.toLowerCase()}`)}
                       </span>
                     </div>
                   </motion.div>

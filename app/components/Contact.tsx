@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Send, MapPin, Clock } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { useState } from "react";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -50,13 +52,13 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <span className="inline-block text-primary font-semibold mb-4">
-            Get in Touch
+            {t("contact.label")}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">
-            Let's Build Something Great
+            {t("contact.title")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Have a project in mind? Looking for a mobile developer? I'd love to hear from you.
+            {t("contact.description")}
           </p>
         </motion.div>
 
@@ -72,20 +74,19 @@ const Contact = () => {
             <div className="bg-card rounded-2xl p-6 shadow-card mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
-                <span className="font-semibold">Open for Opportunities</span>
+                <span className="font-semibold">{t("contact.available")}</span>
               </div>
               <p className="text-muted-foreground mb-4">
-                I'm currently available for freelance projects and full-time positions. 
-                Let's discuss how I can help bring your mobile app ideas to life.
+                {t("contact.available.desc")}
               </p>
               <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <MapPin size={16} />
-                  <span>Remote / Worldwide</span>
+                  <span>{t("contact.location")}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock size={16} />
-                  <span>GMT+7</span>
+                  <span>{t("contact.timezone")}</span>
                 </div>
               </div>
             </div>
@@ -108,7 +109,7 @@ const Contact = () => {
                     <link.icon size={24} />
                   </div>
                   <div>
-                    <div className="font-semibold">{link.label}</div>
+                    <div className="font-semibold">{link.label === "Email" ? t("contact.email") : link.label}</div>
                     <div className="text-sm text-muted-foreground">{link.value}</div>
                   </div>
                 </motion.a>
@@ -127,7 +128,7 @@ const Contact = () => {
               <div className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold mb-2">
-                    Your Name
+                    {t("contact.name")}
                   </label>
                   <input
                     type="text"
@@ -135,14 +136,14 @@ const Contact = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 bg-secondary rounded-xl border-0 focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
-                    placeholder="John Doe"
+                    placeholder={t("contact.namePlaceholder")}
                     required
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold mb-2">
-                    Email Address
+                    {t("contact.email")}
                   </label>
                   <input
                     type="email"
@@ -150,14 +151,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 bg-secondary rounded-xl border-0 focus:ring-2 focus:ring-primary outline-none transition-all duration-200"
-                    placeholder="john@example.com"
+                    placeholder={t("contact.emailPlaceholder")}
                     required
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold mb-2">
-                    Your Message
+                    {t("contact.message")}
                   </label>
                   <textarea
                     id="message"
@@ -165,14 +166,14 @@ const Contact = () => {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={5}
                     className="w-full px-4 py-3 bg-secondary rounded-xl border-0 focus:ring-2 focus:ring-primary outline-none transition-all duration-200 resize-none"
-                    placeholder="Tell me about your project..."
+                    placeholder={t("contact.messagePlaceholder")}
                     required
                   />
                 </div>
 
                 <Button type="submit" variant="hero" size="xl" className="w-full">
                   <Send size={20} />
-                  Send Message
+                  {t("contact.send")}
                 </Button>
               </div>
             </form>

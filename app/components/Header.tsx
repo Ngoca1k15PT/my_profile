@@ -5,18 +5,13 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import Link from "next/link";
-
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/app/contexts/LanguageContext";
+import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +20,14 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navLinks = [
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.skills"), href: "#skills" },
+    { label: t("nav.experience"), href: "#experience" },
+    { label: t("nav.projects"), href: "#projects" },
+    { label: t("nav.contact"), href: "#contact" },
+  ];
 
   return (
     <motion.header
@@ -47,7 +50,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -57,20 +60,23 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
+            <LanguageSwitcher />
             <Button variant="hero" size="sm" asChild>
-              <Link href="#contact">Hire Me</Link>
+              <Link href="#contact">{t("nav.hire")}</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+          </div>
         </nav>
 
         {/* Mobile Navigation */}
@@ -92,9 +98,12 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button variant="hero" className="mt-2" asChild>
-                <Link href="#contact">Hire Me</Link>
-              </Button>
+              <div className="flex items-center gap-2 mt-2">
+                <LanguageSwitcher />
+                <Button variant="hero" className="flex-1" asChild>
+                  <Link href="#contact">{t("nav.hire")}</Link>
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}
