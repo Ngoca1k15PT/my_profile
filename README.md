@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Profile - Next.js Portfolio
+
+A modern portfolio website for a React Native mobile developer, built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
+
+## Features
+
+- 🎨 Modern, responsive design
+- ⚡ Built with Next.js 16 and React 19
+- 🎭 Smooth animations with Framer Motion
+- 🎨 Beautiful UI with Tailwind CSS and custom theme
+- 📱 Fully responsive layout
+- 🚀 Optimized for performance
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ and npm/yarn/pnpm
+
+### Installation
+
+1. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+2. Add the developer illustration image:
+   - Place your developer illustration image at `public/developer-illustration.png`
+   - The recommended size is 600x600 pixels or larger
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+my-profile/
+├── app/                 # Next.js app router pages
+│   ├── layout.tsx      # Root layout with metadata
+│   ├── page.tsx        # Home page
+│   └── globals.css     # Global styles
+├── components/         # React components
+│   ├── ui/            # Reusable UI components
+│   │   └── button.tsx # Button component
+│   ├── Header.tsx     # Navigation header
+│   ├── Hero.tsx       # Hero section
+│   ├── About.tsx      # About section
+│   ├── Skills.tsx     # Skills section
+│   ├── Experience.tsx # Experience section
+│   ├── Projects.tsx   # Projects section
+│   ├── Contact.tsx    # Contact section
+│   └── Footer.tsx     # Footer
+├── lib/               # Utility functions
+│   └── utils.ts       # Utility functions (cn helper)
+├── public/            # Static assets
+│   └── developer-illustration.png  # Hero image (add your own)
+└── tailwind.config.ts # Tailwind CSS configuration
+```
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+### Update Personal Information
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Edit the following components to update your information:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `components/Hero.tsx` - Update hero text, stats, and call-to-action
+- `components/About.tsx` - Update about section content
+- `components/Skills.tsx` - Update skills and expertise
+- `components/Experience.tsx` - Update work experience and education
+- `components/Projects.tsx` - Update featured projects
+- `components/Contact.tsx` - Update contact information and social links
+- `components/Footer.tsx` - Update footer content
 
-## Deploy on Vercel
+### Theme Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The color scheme and theme variables are defined in `app/globals.css`. You can customize:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Primary colors (Teal)
+- Accent colors (Coral)
+- Background colors
+- Shadows and gradients
+
+## Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+## Technologies Used
+
+- **Next.js 16** - React framework
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Framer Motion** - Animations
+- **Lucide React** - Icons
+- **Radix UI** - UI primitives
+
+## License
+
+This project is private and proprietary.
