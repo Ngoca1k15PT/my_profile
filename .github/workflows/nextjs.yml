@@ -65,10 +65,6 @@ jobs:
       - name: Build
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
-      # ✅ IMPORTANT: export static site to ./out
-      - name: Export
-        run: ${{ steps.detect-package-manager.outputs.runner }} next export
-
       # ✅ IMPORTANT: put CNAME into the artifact (choose ONE)
       - name: Add CNAME (www)
         run: echo "www.dinhhoangngoc.com" > ./out/CNAME
