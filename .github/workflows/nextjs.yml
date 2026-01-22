@@ -67,7 +67,7 @@ jobs:
 
       # ✅ IMPORTANT: put CNAME into the artifact (choose ONE)
       - name: Add CNAME (www)
-        run: echo "www.dinhhoangngoc.com" > ./out/CNAME
+        run: echo "dinhhoangngoc.com" > ./out/CNAME
         # If you want non-www as primary, use:
         # run: echo "dinhhoangngoc.com" > ./out/CNAME
 
