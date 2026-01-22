@@ -10,9 +10,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:hello@devmobile.com", label: "Email" },
+    { icon: Github, href: "https://github.com/Ngoca1k15PT", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/hoang-ngoc-749724153", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:ngoca1k15@gmail.com", label: "Email" },
   ];
 
   return (
@@ -66,8 +66,7 @@ const Footer = () => {
             className="text-center md:text-right"
           >
             <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center md:justify-end">
-              © {currentYear} DevMobile. {t("footer.madeWith")}{" "}
-              <Heart size={14} className="text-accent fill-accent" /> {t("footer.and")}
+              © {currentYear} DevMobile
             </p>
           </motion.div>
         </div>

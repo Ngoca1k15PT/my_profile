@@ -36,7 +36,7 @@ const Skills = () => {
     color: "bg-primary/10 text-primary",
     skills: [
       { name: "Socket.io", level: "Advanced", years: "2 years" },
-      { name: "REST APIs", level: "Expert", years: "4 years" },
+      { name: "REST APIs", level: "Advanced", years: "2 years" },
       { name: "Firebase", level: "Advanced", years: "3 years" },
       { name: "GraphQL", level: "Intermediate", years: "1 year" },
     ],
@@ -48,8 +48,8 @@ const Skills = () => {
     skills: [
       { name: "Git & GitHub", level: "Expert", years: "4 years" },
       { name: "CI/CD Pipelines", level: "Advanced", years: "2 years" },
-      { name: "Fastlane", level: "Intermediate", years: "2 years" },
-      { name: "App Store Connect", level: "Advanced", years: "3 years" },
+      { name: "Google Play Console", level: "Expert", years: "4 years" },
+      { name: "App Store Connect", level: "Expert", years: "4 years" },
     ],
   },
 ];

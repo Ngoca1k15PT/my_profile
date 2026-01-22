@@ -6,37 +6,53 @@ import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const experiences = [
   {
-    year: "2024",
-    title: "Senior Mobile Developer",
-    company: "Tech Startup",
-    description: "Leading mobile development initiatives, mentoring junior developers, and architecting scalable React Native solutions.",
+    year: "2025 - Present",
+    title: "Mid-level Mobile Developer",
+    company: "FLYDINO TECHNOLOGY",
+    description: "Developing and maintaining scalable React Native applications, owning features end-to-end, optimizing performance, and collaborating with product and backend teams.",
     icon: Code,
     type: "work",
   },
   {
-    year: "2022",
-    title: "Mobile Developer",
-    company: "Product Company",
-    description: "Built and shipped multiple user-facing mobile applications with real-time features and complex state management.",
+    year: "2023 - 2024",
+    title: "Junior Mobile Developer",
+    company: "FLYDINO TECHNOLOGY",
+    description: "Developed and shipped mobile applications using React Native, implementing user-facing features, handling state management, and integrating RESTful APIs.",
     icon: Briefcase,
     type: "work",
   },
   {
-    year: "2021",
-    title: "Junior Mobile Developer",
-    company: "Software Agency",
+    year: "2022",
+    title: "Fresher Mobile Developer",
+    company: "FLYDINO TECHNOLOGY",
     description: "Started my journey in mobile development, learning React Native fundamentals and best practices.",
     icon: Lightbulb,
     type: "work",
   },
   {
-    year: "2020",
-    title: "Bachelor of Information Technology",
-    company: "University",
-    description: "Graduated with a focus on Software Engineering, building a strong foundation in computer science principles.",
+    year: "2018 - 2022",
+    title: "University of Technology and Education",
+    company: "The University of Danang (UTE)",
+    description: "Graduated as an Information Technology Engineer, building a strong foundation in computer science and software development principles.",
     icon: GraduationCap,
     type: "education",
   },
+  {
+    year: "2022",
+    title: "Mobile Developer Intern (React Native)",
+    company: "Tech Startup / Software Company",
+    description: "Interned as a Mobile Developer (React Native), building cross-platform mobile applications, integrating APIs, optimizing UI/UX, and gaining hands-on experience in real-world software development.",
+    icon: Briefcase,
+    type: "education",
+  },
+  {
+    year: "2020 - 2021",
+    title: "Game Tester (Part-time)",
+    company: "Game Startup",
+    description: "Worked as a part-time game tester at a startup company, responsible for testing gameplay features, identifying and reporting bugs, and contributing to improving game quality and user experience.",
+    icon: Briefcase,
+    type: "work",
+  }
 ];
 
   const highlights = [

@@ -1,45 +1,64 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, MessageCircle, ShoppingCart, Brain, Smartphone } from "lucide-react";
+import { ExternalLink, Github, MessageCircle, ShoppingCart, Brain, Smartphone, HeartHandshake, Radio } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const projects = [
   {
-    title: "ChatFlow",
-    subtitle: "Real-time Messaging App",
-    description: "A social chat application with real-time messaging, group chats, media sharing, and push notifications. Built for seamless communication with WebSocket integration.",
-    problem: "Users needed a fast, reliable way to communicate in real-time",
-    solution: "Implemented Socket.io for instant messaging with offline support and message sync",
-    techStack: ["React Native", "TypeScript", "Redux", "Socket.io", "Firebase"],
+    title: "CuuPaw",
+    subtitle: "Animal Rescue Posting App",
+    description: "A mobile application that allows users to post and discover animal rescue requests, share information about animals in need, and connect volunteers and rescue groups in real time",
+    problem: "Animal rescue information was scattered across social platforms, making it difficult for volunteers and rescue teams to respond quickly.",
+    solution: "Built a centralized platform for posting rescue cases with real-time updates and notifications to help volunteers coordinate and respond faster.",
+    techStack: ["React Native", "TypeScript", "Redux", "Firebase"],
     platforms: ["iOS", "Android"],
-    features: ["Real-time messaging", "Push notifications", "Media sharing", "Offline support"],
-    icon: MessageCircle,
+    features: ["Real-time messaging", "Push notifications", "Rescue post creation", "User interaction and comments"],
+    icon: HeartHandshake,
     color: "bg-primary/10 text-primary",
+    link_ios: "https://apps.apple.com/vn/app/cuupaw/id6754810609",
+    link_android: "https://play.google.com/store/apps/details?id=com.cuupaw&pcampaignid=web_share",
   },
   {
-    title: "ShopEase",
-    subtitle: "E-commerce Mobile App",
-    description: "A full-featured e-commerce application with product catalog, cart management, secure payments, and order tracking. Focused on smooth UX and fast performance.",
-    problem: "Complex checkout flows were causing cart abandonment",
-    solution: "Streamlined UX with one-tap checkout and persistent cart across devices",
-    techStack: ["React Native", "TypeScript", "Redux Toolkit", "REST API", "Stripe"],
+    title: "133ch",
+    subtitle: "Live Streaming & Music App",
+    description: "A real-time live streaming and music application allowing users to watch livestreams, listen to music, interact with streamers, and enjoy high-quality audio/video with low latency.",
+    problem: "High latency and poor interaction reduced user engagement during livestreams",
+    solution: "Optimized real-time streaming with low-latency playback, stable sockets, and interactive features",
+    techStack: ["React Native", "TypeScript", "Zustand", "React Navigation", "Socket.IO", "REST API","Firebase","Stripe"],
     platforms: ["iOS", "Android"],
-    features: ["Product search", "Secure payments", "Order tracking", "Wishlist"],
-    icon: ShoppingCart,
+    features: [
+      "Live streaming",
+      "Music streaming",
+      "Real-time chat",
+      "Streamer interaction",
+      "Favorites & follow system",
+      "Payment system",
+    ],
+    icon: Radio,
+    link_ios: "https://apps.apple.com/vn/app/133ch/id6618144537?l=vi",
+    link_android: "https://play.google.com/store/apps/details?id=com.app133.live&pcampaignid=web_share",
     color: "bg-accent/10 text-accent",
   },
   {
-    title: "MindTask",
-    subtitle: "AI-Powered Productivity App",
-    description: "A smart task management app with AI-powered prioritization, natural language input, and smart reminders. Designed to boost productivity without complexity.",
-    problem: "Traditional todo apps required too much manual organization",
-    solution: "AI automatically categorizes and prioritizes tasks based on context and deadlines",
-    techStack: ["React Native", "TypeScript", "Redux", "OpenAI API", "SQLite"],
+    title: "133ch-Streamer",
+    subtitle: "Live Streaming & Music Upload App",
+    description: "A real-time live streaming app that lets creators go live, interact with audiences, and upload music for on-demand listening. Built for smooth playback, low latency, and creator-friendly workflows.",
+    problem: "Creators struggled with unstable streaming and a complicated process to publish audio content",
+    solution: "Optimized low-latency streaming with reliable real-time chat, plus a simple upload-to-publish flow for music with fast processing",
+    techStack: ["React Native", "TypeScript", "Zustand", "React Navigation", "Socket.IO", "REST API","Firebase","Stripe"],
     platforms: ["iOS", "Android"],
-    features: ["AI task sorting", "Natural language", "Smart reminders", "Analytics"],
-    icon: Brain,
+    features: [
+      "Go live (low-latency streaming)",
+      "Real-time chat & interactions",
+      "Upload music & manage library",
+      "Playback queue & favorites",
+      "Creator profile & followers"
+    ],
+    icon: Radio,
+    link_ios: "https://apps.apple.com/jp/app/133ch-streamer/id6618147513",
+    link_android: "https://play.google.com/store/apps/details?id=com.streamerliveapp&pcampaignid=web_share",
     color: "bg-primary/10 text-primary",
   },
 ];
@@ -177,14 +196,22 @@ const Projects = () => {
 
                   {/* Buttons */}
                   <div className="flex gap-3">
-                    <Button variant="default" size="sm">
-                      <ExternalLink size={16} />
-                      {t("projects.viewDetails")}
-                    </Button>
-                    <Button variant="outline" size="sm">
-                      <Github size={16} />
-                      {t("projects.github")}
-                    </Button>
+                    {project.link_ios && (
+                      <Button variant="default" size="sm" asChild>
+                        <a href={project.link_ios} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink size={16} />
+                          iOS
+                        </a>
+                      </Button>
+                    )}
+                    {project.link_android && (
+                      <Button variant="default" size="sm" asChild>
+                        <a href={project.link_android} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink size={16} />
+                          Android
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </div>

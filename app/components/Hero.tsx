@@ -91,7 +91,7 @@ const Hero = () => {
               className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-border"
             >
               <div>
-                <div className="text-3xl md:text-4xl font-heading font-bold text-gradient">4+</div>
+                <div className="text-3xl md:text-4xl font-heading font-bold text-gradient">5+</div>
                 <div className="text-sm text-muted-foreground">{t("hero.yearsExp")}</div>
               </div>
               <div>

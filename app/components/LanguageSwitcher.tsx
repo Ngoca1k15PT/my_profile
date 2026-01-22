@@ -30,16 +30,16 @@ const LanguageSwitcher = () => {
           onClick={() => setLanguage("en")}
           className={language === "en" ? "bg-secondary" : ""}
         >
-          <span className="mr-2">🇬🇧</span>
-          English
+          <img src="https://flagcdn.com/w20/us.png" alt="United States" className="mr-2" />
+           English
           {language === "en" && <span className="ml-2 text-primary">✓</span>}
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => setLanguage("vi")}
           className={language === "vi" ? "bg-secondary" : ""}
         >
-          <span className="mr-2">🇻🇳</span>
-          Tiếng Việt
+          <img src="https://flagcdn.com/w20/vn.png" alt="Vietnam" className="mr-2"/>
+           Tiếng Việt
           {language === "vi" && <span className="ml-2 text-primary">✓</span>}
         </DropdownMenuItem>
       </DropdownMenuContent>

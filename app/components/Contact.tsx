@@ -24,20 +24,20 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "hello@devmobile.com",
-      href: "mailto:hello@devmobile.com",
+      value: "ngoca1k15@gmail.com",
+      href: "mailto:ngoca1k15@gmail.com",
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "@devmobile",
-      href: "https://github.com",
+      value: "@Ngoca1k15PT",
+      href: "https://github.com/Ngoca1k15PT",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "in/devmobile",
-      href: "https://linkedin.com",
+      value: "in/hoang-ngoc-749724153",
+      href: "https://www.linkedin.com/in/hoang-ngoc-749724153",
     },
   ];
 
