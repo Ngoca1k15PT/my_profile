@@ -13,8 +13,8 @@ const Skills = () => {
     icon: Smartphone,
     color: "bg-primary/10 text-primary",
     skills: [
-      { name: "React Native", level: "Expert", years: 4 },
-      { name: "TypeScript", level: "Advanced", years: 3 },
+      { name: "React Native", level: "Expert", years: 5 },
+      { name: "TypeScript", level: "Advanced", years: 4 },
       { name: "skills.android", level: "Intermediate", years: 2 },
       { name: "skills.ios", level: "Intermediate", years: 2 },
     ],
@@ -24,10 +24,10 @@ const Skills = () => {
     icon: Layers,
     color: "bg-accent/10 text-accent",
     skills: [
-      { name: "Redux / Redux Toolkit", level: "Expert", years: 3 },
-      { name: "skills.cleanArchitecture", level: "Advanced", years: 2 },
-      { name: "skills.modularCodebase", level: "Advanced", years: 3 },
-      { name: "skills.designPatterns", level: "Advanced", years: 3 },
+      { name: "Redux / Redux Toolkit", level: "Expert", years: 4 },
+      { name: "skills.cleanArchitecture", level: "Advanced", years: 3 },
+      { name: "skills.modularCodebase", level: "Advanced", years: 4 },
+      { name: "skills.designPatterns", level: "Advanced", years: 4 },
     ],
   },
   {
@@ -35,10 +35,10 @@ const Skills = () => {
     icon: Zap,
     color: "bg-primary/10 text-primary",
     skills: [
-      { name: "Socket.io", level: "Advanced", years: 2 },
-      { name: "REST APIs", level: "Advanced", years: 2 },
-      { name: "Firebase", level: "Advanced", years: 3 },
-      { name: "GraphQL", level: "Intermediate", years: 1 },
+      { name: "Socket.io", level: "Advanced", years: 4 },
+      { name: "REST APIs", level: "Advanced", years: 4 },
+      { name: "Firebase", level: "Advanced", years: 5 },
+      { name: "GraphQL", level: "Intermediate", years: 2 },
     ],
   },
   {
@@ -46,10 +46,10 @@ const Skills = () => {
     icon: GitBranch,
     color: "bg-accent/10 text-accent",
     skills: [
-      { name: "Git & GitHub", level: "Expert", years: 4 },
-      { name: "skills.cicd", level: "Advanced", years: 2 },
-      { name: "Google Play Console", level: "Expert", years: 4 },
-      { name: "App Store Connect", level: "Expert", years: 4 },
+      { name: "Git & GitHub", level: "Expert", years: 5 },
+      { name: "skills.cicd", level: "Advanced", years: 3 },
+      { name: "Google Play Console", level: "Expert", years: 5 },
+      { name: "App Store Connect", level: "Expert", years: 5 },
     ],
   },
 ];
@@ -69,7 +69,7 @@ const getLevelColor = (level: string) => {
 
   return (
     <section id="skills" className="py-20 lg:py-32 bg-secondary/30">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,13 +96,13 @@ const getLevelColor = (level: string) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              className="bg-card rounded-2xl p-6 lg:p-8 shadow-card hover:shadow-glow transition-all duration-300"
+              className="min-w-0 bg-card rounded-2xl p-3 sm:p-6 lg:p-8 shadow-card hover:shadow-glow transition-shadow duration-300"
             >
-              <div className="flex items-center gap-4 mb-6">
-                <div className={`w-12 h-12 rounded-xl ${category.color} flex items-center justify-center`}>
+              <div className="flex items-center gap-3 sm:gap-4 mb-6">
+                <div className={`w-12 h-12 shrink-0 rounded-xl ${category.color} flex items-center justify-center`}>
                   <category.icon size={24} />
                 </div>
-                <h3 className="text-xl font-heading font-bold">{t(category.titleKey)}</h3>
+                <h3 className="min-w-0 text-lg sm:text-xl font-heading font-bold">{t(category.titleKey)}</h3>
               </div>
 
               <div className="space-y-4">
@@ -113,11 +113,11 @@ const getLevelColor = (level: string) => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
-                    className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 p-3 bg-secondary/50 rounded-xl hover:bg-secondary transition-colors duration-200"
+                    className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-secondary/50 rounded-xl hover:bg-secondary transition-colors duration-200"
                   >
-                    <span className="min-w-0 break-words text-sm sm:text-base font-medium">{t(skill.name)}</span>
-                    <div className="flex items-center gap-2 whitespace-nowrap">
-                      <span className="text-sm text-muted-foreground whitespace-nowrap">{skill.years} {t(skill.years === 1 ? "skills.year" : "skills.years")}</span>
+                    <span className="min-w-0 break-words text-sm lg:text-base font-medium">{t(skill.name)}</span>
+                    <div className="flex items-center gap-1.5 sm:gap-2 whitespace-nowrap">
+                      <span className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">{skill.years} {t(skill.years === 1 ? "skills.year" : "skills.years")}</span>
                       <span className={`text-xs font-semibold px-2 sm:px-3 py-1 rounded-full ${getLevelColor(skill.level)}`}>
                         {t(`skills.${skill.level.toLowerCase()}`)}
                       </span>
