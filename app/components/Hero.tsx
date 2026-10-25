@@ -123,7 +123,7 @@ const Hero = () => {
               >
                 <Image
                   src="/img_hero.jpg"
-                  alt="Mobile Developer Illustration"
+                  alt={t("hero.illustration")}
                   className="w-full max-w-md lg:max-w-lg rounded-3xl"
                   width={600}
                   height={600}

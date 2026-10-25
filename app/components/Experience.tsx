@@ -6,50 +6,50 @@ import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const experiences = [
   {
-    year: "2025 - Present",
-    title: "Mid-level Mobile Developer",
-    company: "FLYDINO TECHNOLOGY",
-    description: "Developing and maintaining scalable React Native applications, owning features end-to-end, optimizing performance, and collaborating with product and backend teams.",
+    year: "experience.item.0.year",
+    title: "experience.item.0.title",
+    company: "experience.item.0.company",
+    description: "experience.item.0.description",
     icon: Code,
     type: "work",
   },
   {
-    year: "2023 - 2024",
-    title: "Junior Mobile Developer",
-    company: "FLYDINO TECHNOLOGY",
-    description: "Developed and shipped mobile applications using React Native, implementing user-facing features, handling state management, and integrating RESTful APIs.",
+    year: "experience.item.1.year",
+    title: "experience.item.1.title",
+    company: "experience.item.1.company",
+    description: "experience.item.1.description",
     icon: Briefcase,
     type: "work",
   },
   {
-    year: "2022",
-    title: "Fresher Mobile Developer",
-    company: "FLYDINO TECHNOLOGY",
-    description: "Started my journey in mobile development, learning React Native fundamentals and best practices.",
+    year: "experience.item.2.year",
+    title: "experience.item.2.title",
+    company: "experience.item.2.company",
+    description: "experience.item.2.description",
     icon: Lightbulb,
     type: "work",
   },
   {
-    year: "2018 - 2022",
-    title: "University of Technology and Education",
-    company: "The University of Danang (UTE)",
-    description: "Graduated as an Information Technology Engineer, building a strong foundation in computer science and software development principles.",
+    year: "experience.item.3.year",
+    title: "experience.item.3.title",
+    company: "experience.item.3.company",
+    description: "experience.item.3.description",
     icon: GraduationCap,
     type: "education",
   },
   {
-    year: "2022",
-    title: "Mobile Developer Intern (React Native)",
-    company: "Tech Startup / Software Company",
-    description: "Interned as a Mobile Developer (React Native), building cross-platform mobile applications, integrating APIs, optimizing UI/UX, and gaining hands-on experience in real-world software development.",
+    year: "experience.item.4.year",
+    title: "experience.item.4.title",
+    company: "experience.item.4.company",
+    description: "experience.item.4.description",
     icon: Briefcase,
     type: "education",
   },
   {
-    year: "2020 - 2021",
-    title: "Game Tester (Part-time)",
-    company: "Game Startup",
-    description: "Worked as a part-time game tester at a startup company, responsible for testing gameplay features, identifying and reporting bugs, and contributing to improving game quality and user experience.",
+    year: "experience.item.5.year",
+    title: "experience.item.5.title",
+    company: "experience.item.5.company",
+    description: "experience.item.5.description",
     icon: Briefcase,
     type: "work",
   }
@@ -127,11 +127,11 @@ const Experience = () => {
                     }`}>
                       <exp.icon size={20} />
                     </div>
-                    <span className="text-sm font-bold text-primary">{exp.year}</span>
+                    <span className="text-sm font-bold text-primary">{t(exp.year)}</span>
                   </div>
-                  <h3 className="text-xl font-heading font-bold mb-1">{exp.title}</h3>
-                  <p className="text-primary font-medium mb-3">{exp.company}</p>
-                  <p className="text-muted-foreground">{exp.description}</p>
+                  <h3 className="text-xl font-heading font-bold mb-1">{t(exp.title)}</h3>
+                  <p className="text-primary font-medium mb-3">{t(exp.company)}</p>
+                  <p className="text-muted-foreground">{t(exp.description)}</p>
                 </div>
               </div>
             </motion.div>

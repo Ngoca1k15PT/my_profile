@@ -6,7 +6,7 @@ import { useLanguage } from "@/app/contexts/LanguageContext";
 
 const About = () => {
   const { t } = useLanguage();
-  
+
   const passions = [
     {
       icon: Heart,
@@ -46,11 +46,11 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">
               {t("about.heading")}
             </h2>
-            
+
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>
-                {t("about.p1").split(/\{mobile\}/g).map((part, index) => 
-                  index === 1 ? (
+                {t("about.p1").split(/(\{mobile\})/g).map((part, index) =>
+                  part === "{mobile}" ? (
                     <span key={index} className="text-foreground font-medium">{t("about.p1.mobile")}</span>
                   ) : (
                     <span key={index}>{part}</span>
@@ -58,8 +58,8 @@ const About = () => {
                 )}
               </p>
               <p>
-                {t("about.p2").split(/\{rn\}/g).map((part, index) => 
-                  index === 1 ? (
+                {t("about.p2").split(/(\{rn\})/g).map((part, index) =>
+                  part === "{rn}" ? (
                     <span key={index} className="text-foreground font-medium">{t("about.p2.rn")}</span>
                   ) : (
                     <span key={index}>{part}</span>
@@ -67,8 +67,8 @@ const About = () => {
                 )}
               </p>
               <p>
-                {t("about.p3").split(/\{key\}/g).map((part, index) => 
-                  index === 1 ? (
+                {t("about.p3").split(/(\{key\})/g).map((part, index) =>
+                  part === "{key}" ? (
                     <span key={index} className="text-foreground font-medium">{t("about.p3.key")}</span>
                   ) : (
                     <span key={index}>{part}</span>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Globe } from "lucide-react";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 import { Button } from "@/app/components/ui/button";
@@ -11,12 +12,13 @@ import {
 } from "@/app/components/ui/dropdown-menu";
 
 const LanguageSwitcher = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
+          aria-label={t("language.select")}
           variant="ghost"
           size="sm"
           className="relative inline-flex items-center gap-1 px-2 py-1 text-xs font-semibold"
@@ -30,7 +32,7 @@ const LanguageSwitcher = () => {
           onClick={() => setLanguage("en")}
           className={language === "en" ? "bg-secondary" : ""}
         >
-          <img src="https://flagcdn.com/w20/us.png" alt="United States" className="mr-2" />
+          <Image width={20} height={14} src="https://flagcdn.com/w20/us.png" alt="" className="mr-2" />
            English
           {language === "en" && <span className="ml-2 text-primary">✓</span>}
         </DropdownMenuItem>
@@ -38,7 +40,7 @@ const LanguageSwitcher = () => {
           onClick={() => setLanguage("vi")}
           className={language === "vi" ? "bg-secondary" : ""}
         >
-          <img src="https://flagcdn.com/w20/vn.png" alt="Vietnam" className="mr-2"/>
+          <Image width={20} height={14} src="https://flagcdn.com/w20/vn.png" alt="" className="mr-2"/>
            Tiếng Việt
           {language === "vi" && <span className="ml-2 text-primary">✓</span>}
         </DropdownMenuItem>

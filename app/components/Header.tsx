@@ -72,6 +72,8 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
+              aria-label={t(isMobileMenuOpen ? "nav.closeMenu" : "nav.openMenu")}
+              aria-expanded={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

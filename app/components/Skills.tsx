@@ -13,10 +13,10 @@ const Skills = () => {
     icon: Smartphone,
     color: "bg-primary/10 text-primary",
     skills: [
-      { name: "React Native", level: "Expert", years: "4 years" },
-      { name: "TypeScript", level: "Advanced", years: "3 years" },
-      { name: "Android Development", level: "Intermediate", years: "2 years" },
-      { name: "iOS Development", level: "Intermediate", years: "2 years" },
+      { name: "React Native", level: "Expert", years: 4 },
+      { name: "TypeScript", level: "Advanced", years: 3 },
+      { name: "skills.android", level: "Intermediate", years: 2 },
+      { name: "skills.ios", level: "Intermediate", years: 2 },
     ],
   },
   {
@@ -24,10 +24,10 @@ const Skills = () => {
     icon: Layers,
     color: "bg-accent/10 text-accent",
     skills: [
-      { name: "Redux / Redux Toolkit", level: "Expert", years: "3 years" },
-      { name: "Clean Architecture", level: "Advanced", years: "2 years" },
-      { name: "Modular Codebase", level: "Advanced", years: "3 years" },
-      { name: "Design Patterns", level: "Advanced", years: "3 years" },
+      { name: "Redux / Redux Toolkit", level: "Expert", years: 3 },
+      { name: "skills.cleanArchitecture", level: "Advanced", years: 2 },
+      { name: "skills.modularCodebase", level: "Advanced", years: 3 },
+      { name: "skills.designPatterns", level: "Advanced", years: 3 },
     ],
   },
   {
@@ -35,10 +35,10 @@ const Skills = () => {
     icon: Zap,
     color: "bg-primary/10 text-primary",
     skills: [
-      { name: "Socket.io", level: "Advanced", years: "2 years" },
-      { name: "REST APIs", level: "Advanced", years: "2 years" },
-      { name: "Firebase", level: "Advanced", years: "3 years" },
-      { name: "GraphQL", level: "Intermediate", years: "1 year" },
+      { name: "Socket.io", level: "Advanced", years: 2 },
+      { name: "REST APIs", level: "Advanced", years: 2 },
+      { name: "Firebase", level: "Advanced", years: 3 },
+      { name: "GraphQL", level: "Intermediate", years: 1 },
     ],
   },
   {
@@ -46,10 +46,10 @@ const Skills = () => {
     icon: GitBranch,
     color: "bg-accent/10 text-accent",
     skills: [
-      { name: "Git & GitHub", level: "Expert", years: "4 years" },
-      { name: "CI/CD Pipelines", level: "Advanced", years: "2 years" },
-      { name: "Google Play Console", level: "Expert", years: "4 years" },
-      { name: "App Store Connect", level: "Expert", years: "4 years" },
+      { name: "Git & GitHub", level: "Expert", years: 4 },
+      { name: "skills.cicd", level: "Advanced", years: 2 },
+      { name: "Google Play Console", level: "Expert", years: 4 },
+      { name: "App Store Connect", level: "Expert", years: 4 },
     ],
   },
 ];
@@ -113,12 +113,12 @@ const getLevelColor = (level: string) => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
-                    className="flex items-center justify-between p-3 bg-secondary/50 rounded-xl hover:bg-secondary transition-colors duration-200"
+                    className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 p-3 bg-secondary/50 rounded-xl hover:bg-secondary transition-colors duration-200"
                   >
-                    <span className="font-medium">{skill.name}</span>
-                    <div className="flex items-center gap-3">
-                      <span className="text-sm text-muted-foreground">{skill.years}</span>
-                      <span className={`text-xs font-semibold px-3 py-1 rounded-full ${getLevelColor(skill.level)}`}>
+                    <span className="min-w-0 break-words text-sm sm:text-base font-medium">{t(skill.name)}</span>
+                    <div className="flex items-center gap-2 whitespace-nowrap">
+                      <span className="text-sm text-muted-foreground whitespace-nowrap">{skill.years} {t(skill.years === 1 ? "skills.year" : "skills.years")}</span>
+                      <span className={`text-xs font-semibold px-2 sm:px-3 py-1 rounded-full ${getLevelColor(skill.level)}`}>
                         {t(`skills.${skill.level.toLowerCase()}`)}
                       </span>
                     </div>
